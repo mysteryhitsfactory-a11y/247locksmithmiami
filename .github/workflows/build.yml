@@ -1,0 +1,25 @@
+name: Build site
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: |
+          if [ "${{ github.actor }}" = "github-actions[bot]" ]; then echo "bot commit, skip"; exit 0; fi
+          cd scripts
+          python3 build.py
+          cd ..
+          rsync -a --delete --exclude scripts --exclude .git --exclude .github --exclude README.md site/ ./
+          rm -rf site
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Build 24/7 Locksmith Miami site"
+          git push
