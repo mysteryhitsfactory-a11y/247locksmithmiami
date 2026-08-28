@@ -6,7 +6,7 @@ PHONE = "(844) 715-0800"
 PHONE_RAW = "8447150800"
 DOMAIN = "https://www.247locksmithmiami.com"
 BRAND = "24/7 Locksmith Miami"
-GSC_TOKEN = "_mpmRmw-Z5tb1TgtcMepUdr7JQ4PzxNHEd_K1TE61aE"
+GSC_TOKEN = "859SfShMNvPHzY2ONT2sMWMEjmrFKilHLksqtAHdO5k"
 
 # ---- Areas: slug, name, kind, local facts (all real, verifiable, evergreen) ----
 # facts: (anchor: landmark/known-for, roads: main corridors, vibe: housing/parking reality)
