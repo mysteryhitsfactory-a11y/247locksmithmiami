@@ -16,7 +16,7 @@ jobs:
           cd scripts
           python3 build.py
           cd ..
-          rsync -a --delete --exclude scripts --exclude .git --exclude .github --exclude README.md site/ ./
+          rsync -a --delete --exclude scripts --exclude .git --exclude .github --exclude README.md --exclude site site/ ./
           rm -rf site
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
