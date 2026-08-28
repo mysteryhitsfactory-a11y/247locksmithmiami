@@ -14,7 +14,8 @@ jobs:
         run: |
           if [ "${{ github.actor }}" = "github-actions[bot]" ]; then echo "bot commit, skip"; exit 0; fi
           cd scripts
-          python3 build.py
+                    rm -rf __pycache__
+          PYTHONDONTWRITEBYTECODE=1 python3 build.py
           cd ..
           rsync -a --delete --exclude scripts --exclude .git --exclude .github --exclude README.md --exclude site site/ ./
           rm -rf site
